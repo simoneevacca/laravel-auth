@@ -3,7 +3,8 @@
 @section('content')
 
     <div class="container">
-        <div class="table-responsive">
+        <a href="{{ route('projects.create') }}" class="btn btn-primary my-4">Add new project</a>
+        <div class="table-responsive my-4">
             <table class="table table-primary">
                 <thead>
                     <tr>
