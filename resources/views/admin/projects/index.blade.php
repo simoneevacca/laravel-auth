@@ -1,10 +1,10 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container">
+    <div class="container projects-index">
         <a href="{{ route('projects.create') }}" class="btn btn-primary my-4">Add new project</a>
-        <div class="table-responsive my-4">
-            <table class="table table-primary">
+        <div class="table-responsive ">
+            <table class="table table-dark">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
@@ -80,8 +80,9 @@
                         </tr>
                     @endforelse
                 </tbody>
-            </table>
+            </table>           
         </div>
 
+        {{ $projects->links('pagination::bootstrap-5') }}
     </div>
 @endsection

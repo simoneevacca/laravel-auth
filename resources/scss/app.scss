@@ -1,1 +1,18 @@
-@import '~bootstrap/scss/bootstrap'
+@use 'partials/layout.scss';
+@use 'partials/projects-index.scss';
+
+
+@import '~bootstrap/scss/bootstrap';
+
+:root {
+    --bg-dark: rgb(7, 0, 44);
+    --bg-light: rgb(14, 12, 24);;
+}
+
+
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
