@@ -30,7 +30,9 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        //
+        $data = $request->all();
+        Project::create($data);
+        return to_route('projects.index');
     }
 
     /**
