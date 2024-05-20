@@ -21,7 +21,7 @@
                         <td>{{ $project->project_name }}</td>
                         <td>{{ $project->language }}</td>
                         <td>
-                            <a href="">view</a>
+                            <a href="{{ route('projects.show', $project) }}">view</a>
                             <a href="">edit</a>
                             <a href="">delete</a>
                         </td>

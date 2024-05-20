@@ -19,7 +19,9 @@
                             </div>
                         @endif
 
-                        {{ __('You are logged in!') }}
+                        <div>Hi Simone!</div>
+
+                        <a class="btn btn-dark my-4" href="{{ route('projects.index') }}">My Projects</a>
                     </div>
                 </div>
             </div>
