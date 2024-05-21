@@ -10,7 +10,6 @@
                         <th scope="col">ID</th>
                         <th scope="col">Preview Image</th>
                         <th scope="col">Project Name</th>
-                        <th scope="col">Languages</th>
                         <th scope="col">Action</th>
 
                     </tr>
@@ -21,7 +20,6 @@
                             <td scope="row">{{ $project->id }}</td>
                             <td ><img src="{{ $project->preview_image }}" alt=""></td>
                             <td>{{ $project->project_name }}</td>
-                            <td>{{ $project->language }}</td>
                             <td>
                                 <a href="{{ route('projects.show', $project) }}">view</a>
                                 <a href="{{ route('projects.edit', $project) }}">edit</a>

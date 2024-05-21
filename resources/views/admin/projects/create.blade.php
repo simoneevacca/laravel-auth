@@ -25,10 +25,17 @@
                 <input type="text" name="preview_image" id="preview_image" class="form-control" placeholder=""
                     aria-describedby="preview_imageId" />
             </div>
+            
             <div class="mb-3">
-                <label for="language" class="form-label text-white">Languages</label>
-                <input type="text" name="language" id="language" class="form-control" placeholder=""
-                    aria-describedby="languageId" />
+                <label for="link_view" class="form-label text-white">Link view</label>
+                <input type="text" name="link_view" id="link_view" class="form-control" placeholder=""
+                    aria-describedby="link_viewId" />
+            </div>
+
+            <div class="mb-3">
+                <label for="link_code" class="form-label text-white">Link code</label>
+                <input type="text" name="link_code" id="link_code" class="form-control" placeholder=""
+                    aria-describedby="link_codeId" />
             </div>
 
             <button type="submit" class="btn btn-primary">
