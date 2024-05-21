@@ -44,13 +44,13 @@
                                         role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="modalTitleId-{{ $project->id }}">
+                                                <h5 class="modal-title text-dark" id="modalTitleId-{{ $project->id }}">
                                                     Delete Project
                                                 </h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                             </div>
-                                            <div class="modal-body">Attention! You are deleting this character, this action
+                                            <div class="modal-body text-dark">Attention! You are deleting this character, this action
                                                 irreversible. Do you want to continue?</div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
