@@ -4,6 +4,11 @@
     <div class="container projects-index">
         <a href="{{ route('projects.create') }}" class="btn btn-primary my-4">Add new project</a>
         <div class="table-responsive ">
+            @if (session('message'))
+                <div class="alert alert-success">
+                    {{ session('message') }}
+                </div>
+            @endif
             <table class="table table-dark">
                 <thead>
                     <tr>
@@ -18,7 +23,7 @@
                     @forelse ($projects as $project)
                         <tr class="">
                             <td scope="row">{{ $project->id }}</td>
-                            <td ><img src="{{ $project->preview_image }}" alt=""></td>
+                            <td><img src="{{ $project->preview_image }}" alt=""></td>
                             <td>{{ $project->project_name }}</td>
                             <td>
                                 <a href="{{ route('projects.show', $project) }}">view</a>
@@ -26,7 +31,8 @@
 
 
                                 <!-- Modal trigger button -->
-                                <a href="#" data-bs-toggle="modal"data-bs-target="#modalId-{{ $project->id }}">delete</a>
+                                <a href="#"
+                                    data-bs-toggle="modal"data-bs-target="#modalId-{{ $project->id }}">delete</a>
 
 
                                 <!-- Modal Body -->
@@ -78,7 +84,7 @@
                         </tr>
                     @endforelse
                 </tbody>
-            </table>           
+            </table>
         </div>
 
         {{ $projects->links('pagination::bootstrap-5') }}

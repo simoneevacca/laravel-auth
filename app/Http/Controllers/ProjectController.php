@@ -30,9 +30,9 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        $data = $request->all();
-        Project::create($data);
-        return to_route('projects.index');
+        $val_data = $request->validated();
+        Project::create($val_data);
+        return to_route('projects.index')->with('message', "New Project Created!");
     }
 
     /**
@@ -56,9 +56,9 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        $data = $request->all();
-        $project->update($data);
-        return to_route('projects.index');
+        $val_data = $request->validated();
+        $project->update($val_data);
+        return to_route('projects.index', $project)->with('message', "$project->project_name has been updated");
     }
 
     /**
@@ -67,6 +67,6 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         $project->delete();
-        return back();
+        return to_route('projects.index', $project)->with('message', "$project->project_name has been deleted");
     }
 }
