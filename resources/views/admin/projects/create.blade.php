@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
     <div class="container">
-        <a href="{{ route('projects.index') }}" class="btn btn-secondary"><strong>Back</strong></a>
+        <a href="{{ route('admin.projects.index') }}" class="btn btn-secondary"><strong>Back</strong></a>
 
         <h1 class=" text-white">
             Add Project
@@ -9,7 +9,7 @@
 
         @include('admin.partials.validation-errors')
 
-        <form action="{{ route('projects.store') }}" method="POST">
+        <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div class="mb-3">
@@ -31,8 +31,8 @@
 
             <div class="mb-3">
                 <label for="preview_image" class="form-label text-white">Image</label>
-                <input type="text" name="preview_image" id="preview_image" class="form-control" placeholder=""
-                    aria-describedby="preview_imageId" value="{{ old('preview_image') }}"/>
+                <input type="file" name="preview_image" id="preview_image" class="form-control" placeholder=""
+                    aria-describedby="preview_imageId"/>
             </div>
             @error('preview_image')
                 <div class="text-danger">{{ $message }}</div>

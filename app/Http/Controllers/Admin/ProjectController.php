@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use App\Http\Controllers\Controller;
+
 
 class ProjectController extends Controller
 {
@@ -32,7 +34,7 @@ class ProjectController extends Controller
     {
         $val_data = $request->validated();
         Project::create($val_data);
-        return to_route('projects.index')->with('message', "New Project Created!");
+        return to_route('admin.projects.index')->with('message', "New Project Created!");
     }
 
     /**
@@ -58,7 +60,7 @@ class ProjectController extends Controller
     {
         $val_data = $request->validated();
         $project->update($val_data);
-        return to_route('projects.index', $project)->with('message', "$project->project_name has been updated");
+        return to_route('admin.projects.index', $project)->with('message', "$project->project_name has been updated");
     }
 
     /**
@@ -67,6 +69,6 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         $project->delete();
-        return to_route('projects.index', $project)->with('message', "$project->project_name has been deleted");
+        return to_route('admin.projects.index', $project)->with('message', "$project->project_name has been deleted");
     }
 }

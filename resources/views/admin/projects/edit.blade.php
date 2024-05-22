@@ -2,11 +2,11 @@
 
 @section('content')
     <div class="container">
-        <a href="{{ route('projects.index') }}" class="btn btn-secondary"><strong>Back</strong></a>
+        <a href="{{ route('admin.projects.index') }}" class="btn btn-secondary"><strong>Back</strong></a>
         <h1 class=" text-white">Editing {{ $project->project_name }}</h1>
 
         @include('admin.partials.validation-errors')
-        <form action="{{ route('projects.update', $project) }}" method="POST">
+        <form action="{{ route('admin.projects.update', $project) }}" method="POST">
             @csrf
             @method('put')
 

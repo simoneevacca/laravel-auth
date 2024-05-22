@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container projects-index">
-        <a href="{{ route('projects.create') }}" class="btn btn-primary my-4">Add new project</a>
+        <a href="{{ route('admin.projects.create') }}" class="btn btn-primary my-4">Add new project</a>
         <div class="table-responsive ">
             @if (session('message'))
                 <div class="alert alert-success">
@@ -26,8 +26,8 @@
                             <td><img src="{{ $project->preview_image }}" alt=""></td>
                             <td>{{ $project->project_name }}</td>
                             <td>
-                                <a href="{{ route('projects.show', $project) }}">view</a>
-                                <a href="{{ route('projects.edit', $project) }}">edit</a>
+                                <a href="{{ route('admin.projects.show', $project) }}">view</a>
+                                <a href="{{ route('admin.projects.edit', $project) }}">edit</a>
 
 
                                 <!-- Modal trigger button -->
@@ -56,7 +56,7 @@
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                                     back
                                                 </button>
-                                                <form action="{{ route('projects.destroy', $project) }}" method="POST">
+                                                <form action="{{ route('admin.projects.destroy', $project) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger">Delete</button>

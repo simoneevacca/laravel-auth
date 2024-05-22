@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container py-4">
-    <a href="{{ route('projects.index') }}" class="btn btn-secondary"><strong>Back</strong></a>
+    <a href="{{ route('admin.projects.index') }}" class="btn btn-secondary"><strong>Back</strong></a>
     <div class="row row-cols-2">
         <div class="col d-flex justify-content-between">
             <div class="card">
