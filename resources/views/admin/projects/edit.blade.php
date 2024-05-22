@@ -6,7 +6,7 @@
         <h1 class=" text-white">Editing {{ $project->project_name }}</h1>
 
         @include('admin.partials.validation-errors')
-        <form action="{{ route('admin.projects.update', $project) }}" method="POST">
+        <form action="{{ route('admin.projects.update', $project) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('put')
 
@@ -29,7 +29,7 @@
 
             <div class="mb-3">
                 <label for="preview_image" class="form-label text-white">Image</label>
-                <input type="text" name="preview_image" id="preview_image" class="form-control" placeholder=""
+                <input type="file" name="preview_image" id="preview_image" class="form-control" placeholder=""
                     aria-describedby="preview_imageId" value="{{old('preview_image', $project->preview_image) }}" />
             </div>
             @error('preview_image')

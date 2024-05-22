@@ -37,10 +37,8 @@ class ProjectController extends Controller
         $val_data = $request->validated();
 
         if ($request->has('preview_image')) {
-
             $image_path = Storage::put('uploads', $val_data['preview_image']);
-            $image_path = $val_data['preview_image'];
-
+            $val_data['preview_image'] = $image_path;
         }
         
         
@@ -70,6 +68,17 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $val_data = $request->validated();
+
+        if($request->has('cover_image')) {
+            if($project->preview_image){
+                Storage::delete($project->preview_image);
+            }
+            $image_path = Storage::put('uploads', $val_data['preview_image']);
+            $val_data['preview_image'] = $image_path;
+
+        }   
+
+
         $project->update($val_data);
         return to_route('admin.projects.index', $project)->with('message', "$project->project_name has been updated");
     }
@@ -79,6 +88,10 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+
+        if($project->preview_image){
+            Storage::delete($project->preview_image);
+        }
         $project->delete();
         return to_route('admin.projects.index', $project)->with('message', "$project->project_name has been deleted");
     }

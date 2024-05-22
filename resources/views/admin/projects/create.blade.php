@@ -32,7 +32,7 @@
             <div class="mb-3">
                 <label for="preview_image" class="form-label text-white">Image</label>
                 <input type="file" name="preview_image" id="preview_image" class="form-control" placeholder=""
-                    aria-describedby="preview_imageId"/>
+                    aria-describedby="preview_imageId" value="{{ old('preview_image') }}"/>
             </div>
             @error('preview_image')
                 <div class="text-danger">{{ $message }}</div>
