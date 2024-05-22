@@ -6,6 +6,8 @@ use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
+
 
 
 class ProjectController extends Controller
@@ -33,6 +35,15 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request)
     {
         $val_data = $request->validated();
+
+        if ($request->has('preview_image')) {
+
+            $image_path = Storage::put('uploads', $val_data['preview_image']);
+            $image_path = $val_data['preview_image'];
+
+        }
+        
+        
         Project::create($val_data);
         return to_route('admin.projects.index')->with('message', "New Project Created!");
     }

@@ -23,7 +23,7 @@
                     @forelse ($projects as $project)
                         <tr class="">
                             <td scope="row">{{ $project->id }}</td>
-                            <td><img src="{{ $project->preview_image }}" alt=""></td>
+                            <td><img src="{{ asset('storage/' . $project->preview_image )}}" alt=""></td>
                             <td>{{ $project->project_name }}</td>
                             <td>
                                 <a href="{{ route('admin.projects.show', $project) }}">view</a>
