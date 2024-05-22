@@ -68,8 +68,9 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $val_data = $request->validated();
+        if($request->has('preview_image')) {
+            
 
-        if($request->has('cover_image')) {
             if($project->preview_image){
                 Storage::delete($project->preview_image);
             }
