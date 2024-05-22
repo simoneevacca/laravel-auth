@@ -1,10 +1,5 @@
-@include('layouts.partials.head')
 
-<body>
-    <div id="app">
-
-
-        <nav class="navbar navbar-expand-md navbar-dark shadow-sm main-nav guest">
+<nav class="navbar navbar-expand-md navbar-dark shadow-sm main-nav admin">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                     <div class="page-logo">MY PORTFOLIO</div>
@@ -64,11 +59,3 @@
                 </div>
             </div>
         </nav>
-
-        <main class="">
-            @yield('content')
-        </main>
-    </div>
-</body>
-
-</html>

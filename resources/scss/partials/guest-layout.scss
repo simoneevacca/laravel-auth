@@ -16,8 +16,8 @@
 
 }
 
-main {
-    background-color: var(--bg-light);
+main.guest {
+    background-color: white;
     min-height: 100vh;
     padding: 2rem;
 }

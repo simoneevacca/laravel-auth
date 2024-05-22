@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', function () {
-    return view('welcome');
+    return view('guest.home');
 });
 
 // Route::resource('/admin/projects', ProjectController::class);
@@ -30,7 +30,7 @@ Route::middleware(['auth', 'verified'])
 
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
         Route::resource('/projects', ProjectController::class)->parameters(['projects' => 'project:slug']);
-        // ->parameters(['projects' => 'project:slug']) doesn't work
+       
     });
 
 
