@@ -1,5 +1,9 @@
-@use 'partials/layout.scss';
+@use 'partials/admin-layout.scss';
+@use 'partials/guest-layout.scss';
+
 @use 'partials/projects-index.scss';
+@use 'partials/projects-show.scss';
+
 
 
 @import '~bootstrap/scss/bootstrap';

@@ -15,6 +15,8 @@
                         <th scope="col">ID</th>
                         <th scope="col">Preview Image</th>
                         <th scope="col">Project Name</th>
+                        <th>View link</th>
+                        <th>Code link</th>
                         <th scope="col">Action</th>
 
                     </tr>
@@ -23,16 +25,21 @@
                     @forelse ($projects as $project)
                         <tr class="">
                             <td scope="row">{{ $project->id }}</td>
-                            <td><img src="{{ asset('storage/' . $project->preview_image )}}" alt=""></td>
+                            <td><img src="{{ asset('storage/' . $project->preview_image) }}" alt=""></td>
                             <td>{{ $project->project_name }}</td>
+                            <td><a href="{{ $project->link_view }}">click</a></td>
+                            <td><a href="{{ $project->link_code }}">click</a></td>
+
                             <td>
-                                <a href="{{ route('admin.projects.show', $project) }}">view</a>
-                                <a href="{{ route('admin.projects.edit', $project) }}">edit</a>
+                                <a class="btn btn-primary btn-sm" href="{{ route('admin.projects.show', $project) }}"><i
+                                        class="fa-solid fa-eye fa-fw"></i> View</a>
+                                <a class="btn btn-warning btn-sm" href="{{ route('admin.projects.edit', $project) }}"><i
+                                        class="fa-solid fa-pen-to-square fa-fw"></i> Edit</a>
 
 
                                 <!-- Modal trigger button -->
-                                <a href="#"
-                                    data-bs-toggle="modal"data-bs-target="#modalId-{{ $project->id }}">delete</a>
+                                <a class="btn btn-danger btn-sm"href="#" data-bs-toggle="modal"data-bs-target="#modalId-{{ $project->id }}"><i
+                                        class="fa-solid fa-trash-can"></i> Delete</a>
 
 
                                 <!-- Modal Body -->
@@ -50,13 +57,15 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                             </div>
-                                            <div class="modal-body text-dark">Attention! You are deleting this character, this action
+                                            <div class="modal-body text-dark">Attention! You are deleting this character,
+                                                this action
                                                 irreversible. Do you want to continue?</div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                                     back
                                                 </button>
-                                                <form action="{{ route('admin.projects.destroy', $project) }}" method="POST">
+                                                <form action="{{ route('admin.projects.destroy', $project) }}"
+                                                    method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger">Delete</button>
@@ -66,16 +75,7 @@
                                     </div>
                                 </div>
 
-                                <!-- Optional: Place to the bottom of scripts -->
-                                <script>
-                                    const myModal = new bootstrap.Modal(
-                                        document.getElementById("modalId"),
-                                        options,
-                                    );
-                                </script>
-
                             </td>
-
                         </tr>
 
                     @empty
