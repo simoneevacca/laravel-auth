@@ -15,7 +15,7 @@
             <div class="mb-3">
                 <label for="project_name" class="form-label text-white ">Project Name</label>
                 <input type="text" name="project_name" id="project_name" class="form-control" placeholder=""
-                    aria-describedby="project_nameId" value="{{ old('project_name') }}"/>
+                    aria-describedby="project_nameId" value="{{ old('project_name') }}" />
             </div>
             @error('project_name')
                 <div class="text-danger">{{ $message }}</div>
@@ -32,16 +32,29 @@
             <div class="mb-3">
                 <label for="preview_image" class="form-label text-white">Image</label>
                 <input type="file" name="preview_image" id="preview_image" class="form-control" placeholder=""
-                    aria-describedby="preview_imageId" value="{{ old('preview_image') }}"/>
+                    aria-describedby="preview_imageId" value="{{ old('preview_image') }}" />
             </div>
             @error('preview_image')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
 
             <div class="mb-3">
+                <label for="type_id" class="form-label text-white">Type</label>
+                <select class="form-select form-select-lg" name="type_id" id="type_id">
+                    @foreach ($types as $type)
+                        
+                    <option value="{{ $type->id }}">{{ $type->type_name }}</option>
+                    @endforeach
+                    
+                </select>
+            </div>
+
+
+
+            <div class="mb-3">
                 <label for="link_view" class="form-label text-white">Link view</label>
                 <input type="text" name="link_view" id="link_view" class="form-control" placeholder=""
-                    aria-describedby="link_viewId" value="{{ old('link_view') }}"/>
+                    aria-describedby="link_viewId" value="{{ old('link_view') }}" />
             </div>
             @error('link_view')
                 <div class="text-danger">{{ $message }}</div>
@@ -50,7 +63,7 @@
             <div class="mb-3">
                 <label for="link_code" class="form-label text-white">Link code</label>
                 <input type="text" name="link_code" id="link_code" class="form-control" placeholder=""
-                    aria-describedby="link_codeId" value="{{ old('link_code') }}"/>
+                    aria-describedby="link_codeId" value="{{ old('link_code') }}" />
             </div>
             @error('link_code')
                 <div class="text-danger">{{ $message }}</div>

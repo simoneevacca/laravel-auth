@@ -15,6 +15,7 @@
                         <th scope="col">ID</th>
                         <th scope="col">Preview Image</th>
                         <th scope="col">Project Name</th>
+                        <th scope="col">Type</th>
                         <th>View link</th>
                         <th>Code link</th>
                         <th scope="col">Action</th>
@@ -27,6 +28,7 @@
                             <td scope="row">{{ $project->id }}</td>
                             <td><img src="{{ asset('storage/' . $project->preview_image) }}" alt=""></td>
                             <td>{{ $project->project_name }}</td>
+                            <td>{{ $project->type_id }}</td>
                             <td><a href="{{ $project->link_view }}">click</a></td>
                             <td><a href="{{ $project->link_code }}">click</a></td>
 

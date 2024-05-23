@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Type extends Model
 {
+    use HasFactory;
+
+    protected $fillable = ['type_name', 'slug'];
 
     public function projects(){
         return $this->hasMany(Project::class);
     }
 
-    use HasFactory;
 }
