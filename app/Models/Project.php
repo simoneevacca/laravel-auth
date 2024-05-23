@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     use HasFactory;
-    public function types(){
+    public function type(){
         return $this->belongsTo(Type::class);
     }
 

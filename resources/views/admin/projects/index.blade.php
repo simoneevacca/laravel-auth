@@ -28,7 +28,7 @@
                             <td scope="row">{{ $project->id }}</td>
                             <td><img src="{{ asset('storage/' . $project->preview_image) }}" alt=""></td>
                             <td>{{ $project->project_name }}</td>
-                            <td>{{ $project->type_id }}</td>
+                            <td>{{ $project->type ? $project->type->type_name : 'null'}}</td>
                             <td><a href="{{ $project->link_view }}">click</a></td>
                             <td><a href="{{ $project->link_code }}">click</a></td>
 

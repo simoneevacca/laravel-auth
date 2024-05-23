@@ -18,7 +18,8 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::orderByDesc('id')->paginate('2');
+        $projects = Project::orderByDesc('id')->with('type')->paginate('15');
+        // dd($projects);
         return view('admin.projects.index', compact('projects'));
     }
 
@@ -47,7 +48,7 @@ class ProjectController extends Controller
             $image_path = Storage::put('uploads', $val_data['preview_image']);
             $val_data['preview_image'] = $image_path;
         }
-        // $val_data['type'] = $request->type;
+       
         // dd($val_data);
     
         Project::create($val_data);
@@ -68,7 +69,9 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('admin.projects.edit', compact('project'));
+        $types = Type::all();
+
+        return view('admin.projects.edit', compact('project', 'types'));
     }
 
     /**
@@ -77,9 +80,9 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $val_data = $request->validated();
+
         if($request->has('preview_image')) {
             
-
             if($project->preview_image){
                 Storage::delete($project->preview_image);
             }
@@ -87,7 +90,6 @@ class ProjectController extends Controller
             $val_data['preview_image'] = $image_path;
 
         }   
-
 
         $project->update($val_data);
         return to_route('admin.projects.index', $project)->with('message', "$project->project_name has been updated");

@@ -37,6 +37,17 @@
             @enderror
 
             <div class="mb-3">
+                <label for="type_id" class="form-label text-white">Type</label>
+                <select class="form-select form-select-lg" name="type_id" id="type_id">
+                    @foreach ($types as $type)
+                        
+                    <option value="{{ $type->id }}">{{ $type->type_name }}</option>
+                    @endforeach
+                    
+                </select>
+            </div>
+
+            <div class="mb-3">
                 <label for="link_view" class="form-label text-white">Link view</label>
                 <input type="text" name="link_view" id="link_view" class="form-control" placeholder=""
                     aria-describedby="link_viewId" value="{{old('link_view', $project->link_view )}}" />
